@@ -17,9 +17,9 @@ RUN add-apt-repository \
 
 RUN apt-get update -qq && apt-get install -qqy docker-ce ca-certificates && rm -rf /var/lib/apt/lists/*
 
-COPY px-npe01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-npe01.k8s.t-mobile.com.crt
-COPY px-prd01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-prd01.k8s.t-mobile.com.crt
-COPY px-stg01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-stg01.k8s.t-mobile.com.crt
+COPY cacerts/px-npe01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-npe01.k8s.t-mobile.com.crt
+COPY cacerts/px-prd01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-prd01.k8s.t-mobile.com.crt
+COPY cacerts/px-stg01.k8s.t-mobile.com.crt /usr/local/share/ca-certificates/px-stg01.k8s.t-mobile.com.crt
 RUN /usr/sbin/update-ca-certificates
 
 RUN usermod -a -G docker jenkins
